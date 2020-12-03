@@ -1,8 +1,15 @@
+
+
+
+
+
 $primary-color: #90d0ee;
 $secondary-color:rgb(0, 66, 128) ;
 $show-home-image: true;
 $home-image: url(../images/shahadat-rahman-BfrQnKBulYQ-unsplash.jpg);
 $background-opacity: 0.5;
+
+
 
 
 
@@ -230,3 +237,71 @@ main{
 	-webkit-transform: scale(1);
 	transform: scale(1);
    }
+
+
+
+
+   .menu-btn{
+    position: absolute;
+    z-index: 3;
+    right: 25px;
+    cursor: pointer;
+    transition: all .5s ease-out;
+
+    .btn-line{
+      
+      border:.5px solid;
+        width :28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        margin-top: 10px;
+        background: white;
+        transition: all .5s ease-out;
+        
+
+    }
+
+
+    &.close{
+      transform:rotate(180deg);
+
+
+      .btn-line{
+        &:nth-child(1){
+          transform:rotate(45deg) translate(5px, 5px);
+          opacity: 0
+        }
+        &:nth-child(2){
+       opacity:0;
+        }
+        &:nth-child(3){
+          opacity:0;
+           }
+
+
+      }
+
+
+
+    }
+
+
+
+
+
+
+  
+
+
+
+}
+
+.close{
+
+}
+
+
+.linkednew{
+  color: red;
+  transform: rotate(360deg);
+}
