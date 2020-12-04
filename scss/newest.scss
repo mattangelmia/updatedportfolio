@@ -38,14 +38,48 @@ $background-opacity: 0.5;
 }
 
 .navlink{
+  font-size: 30px;
+  display: inline-block;
+  position: relative;
     list-style-type: none;
     text-decoration: none;
     color: white;
     &:hover{
         color:black;
+      
         
 
     }
+}
+.navlink2{
+  list-style-type: none;
+  text-decoration: none;
+  color: white;
+  &:hover{
+      color:black;
+      
+
+  }
+}
+.navlink3{
+  list-style-type: none;
+  text-decoration: none;
+  color: white;
+  &:hover{
+      color:black;
+      
+
+  }
+}
+.navlink4{
+  list-style-type: none;
+  text-decoration: none;
+  color: white;
+  &:hover{
+      color:black;
+      
+
+  }
 }
 
 .nav{
@@ -216,32 +250,34 @@ main{
       }
 
 
-   a.navlink:after{
-    content: '';
-    position: absolute;
-    left: 0;
-    display: inline-block;
-    height: 1em;
-    width: 7%;
-    border-bottom: 1px solid;
-    margin-top: 10px;
-    opacity: 0;
-      -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-      transition: opacity 0.35s, transform 0.35s;
-      -webkit-transform: scale(0,1);
-      transform: scale(0,1);
-   }
 
-   a.navlink:hover:after{
-    opacity: 1;
-	-webkit-transform: scale(1);
-	transform: scale(1);
+      a.navlink::before{
+
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0 ;
+        left: 0;
+        background-color: white;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+}
+
+
+  
+
+   a.navlink:hover::before{
+   transform: scaleX(1);
+   transform-origin: bottom left;
    }
 
 
 
 
    .menu-btn{
+     margin-top:20px;
     position: absolute;
     z-index: 3;
     right: 25px;
@@ -250,9 +286,9 @@ main{
 
     .btn-line{
       
-      border:.5px solid;
-        width :28px;
-        height: 3px;
+      border:.2px solid;
+        width :45px;
+        height: 1px;
         margin: 0 0 5px 0;
         margin-top: 10px;
         background: white;
@@ -269,13 +305,13 @@ main{
       .btn-line{
         &:nth-child(1){
           transform:rotate(45deg) translate(5px, 5px);
-          opacity: 0
+          
         }
         &:nth-child(2){
        opacity:0;
         }
         &:nth-child(3){
-          opacity:0;
+          transform:rotate(-45deg) translate(7px, -6px);
            }
 
 
@@ -284,6 +320,7 @@ main{
 
 
     }
+
 
 
 
@@ -300,8 +337,85 @@ main{
 
 }
 
+.menu{
+  position: fixed;
+  top: 0; 
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
 
-.linkednew{
-  color: red;
-  transform: rotate(360deg);
+
+  &.show{
+    
+    visibility: visible;
+  }
+  
+
+  
+  
+}
+
+
+
+.nav{
+  display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    width: 50%;
+    padding: 0;
+    height: 100vh;
+    margin-top:0px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    opacity: 0.9;
+    background: darken($secondary-color,5);
+    transform: translate3d(0,-100%,0);
+    transition: all .5s ease-out;
+    
+    &.show{
+      transform: translate3d(0,0,0);
+    }
+
+    .profilepic{
+      background: url(../images/5158051F-4329-456B-AEAD-935006A13BDA.jpeg);
+      background-attachment: fixed;
+            background-size: cover;
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
+      border: solid 3px $primary-color;
+    }
+
+}
+
+
+
+
+
+@for $x from 1 through 4{
+  .item:nth-child(#{$x}){
+    transition-delay: $x * 0.1s;
+  }
+}
+
+
+
+
+.item{
+  transition-delay:  0.1s;
+  margin: 20px;
+}
+
+.menu-branding {
+  background-color: $secondary-color;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
 }
